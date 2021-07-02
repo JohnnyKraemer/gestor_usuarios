@@ -16,11 +16,11 @@ Abra o projeto em sua IDE de desenvolvimento e execute o projeto, ele deve estar
 
 Desenvolvido em: Angular
 
-
-Requisitos:
+### Requisitos:
 
 - NodeJS (https://nodejs.org/en/download/)
 
+### Abra o projeto pelo pront de comando e execute os seguintes passos:
 
 1° - Instalação dos pacotes: execute `npm install`
 
