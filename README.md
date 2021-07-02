@@ -1,18 +1,18 @@
 # INSTALAÇÃO - GESTOR DE USUÁRIO
 
-##Banco de dados
+## Banco de dados
 
 Desenvolvido em: MySql
 
 Execute o script gestor_usuarios.sql
 
-##Backend: gestor-usuarios-api
+## Backend: gestor-usuarios-api
 
 Desenvolvido em: Java e Spring BooT
 
 Abra o projeto em sua IDE de desenvolvimento e execute o projeto, ele deve estar rodando na porta http://localhost:8080.
 
-##Frontend: gestor-usuarios-front
+## Frontend: gestor-usuarios-front
 
 Desenvolvido em: Angular
 
