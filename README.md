@@ -26,3 +26,6 @@ Desenvolvido em: Angular
 
 2° - Execute `ng serve` para inicar o servidor. Abra a página `http://localhost:4200/`.<p>
 
+## Contato
+Email: johnny@alunos.utfpr.edu.br
+WhatsApp: (46) 9 9109-0380
