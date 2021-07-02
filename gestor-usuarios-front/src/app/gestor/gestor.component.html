@@ -1,0 +1,132 @@
+<div class="main">
+  <div style="width: 70%;">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Usuários
+          <button mat-raised-button color="primary" (click)="openDialogUsuario(0)" style="margin-left: 30px;">
+            Novo
+          </button>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <table mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let elemento"> {{elemento.nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef> CPF </th>
+            <td mat-cell *matCellDef="let elemento"> {{elemento.cpf | mask: "000.000.000-00"}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dataNascimento">
+            <th mat-header-cell *matHeaderCellDef> Data de Nascimento </th>
+            <td mat-cell *matCellDef="let elemento"> {{elemento.dataNascimento | date:"dd/MM/yyyy"}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cargo">
+            <th mat-header-cell *matHeaderCellDef> Cargo </th>
+            <td mat-cell *matCellDef="let elemento"> {{elemento.cargo.nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let elemento">
+              <div class="example-button-row">
+                <button mat-raised-button color="primary" (click)="openDialogUsuario(elemento.id)">Editar</button>
+                <button mat-raised-button color="warn" (click)="deleteUsuario(elemento.id)">Excluir</button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div style="width: 28%;margin-left: 2%;">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Perfis<button mat-raised-button color="primary" (click)="openDialogPerfil(0)"
+            style="margin-left: 30px;">
+            Novo
+          </button>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option *ngFor="let perfil of perfis" (click)="openDialogPerfil(perfil.id)" [disableRipple]="true">
+            <div style="display:flex; justify-content:space-between;align-items:center">
+              <div style="display:flex;">
+                <mat-icon matListAvatar style="margin-top: 17px;">person</mat-icon>
+
+                <div style="display:flex; flex-direction:column; margin-top: 17px;">
+                  <div>
+                    <h3 matLine> {{perfil.nome}}</h3>
+                  </div>
+                  <!-- <div style="margin-top:-30px">
+                    <p matLine>
+                      {{item.details}}
+                    </p>
+                  </div> -->
+                </div>
+              </div>
+              <div>
+                <button mat-icon-button (click)="$event.stopPropagation();deletePerfil(perfil.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card style="margin-top: 30px">
+      <mat-card-header>
+        <mat-card-title>Cargos<button mat-raised-button color="primary" (click)="openDialogCargo(0)"
+            style="margin-left: 30px;">
+            Novo
+          </button>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option *ngFor="let cargo of cargos" (click)="openDialogCargo(cargo.id)" [disableRipple]="true">
+            <div style="display:flex; justify-content:space-between;align-items:center">
+              <div style="display:flex;">
+                <mat-icon matListAvatar style="margin-top: 17px;">folder</mat-icon>
+
+                <div style="display:flex; flex-direction:column; margin-top: 17px;">
+                  <div>
+                    <h3 matLine> {{cargo.nome}}</h3>
+                  </div>
+                  <!-- <div style="margin-top:-30px">
+                    <p matLine>
+                      {{item.details}}
+                    </p>
+                  </div> -->
+                </div>
+              </div>
+              <div>
+                <button mat-icon-button (click)="$event.stopPropagation();deleteCargo(cargo.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+</div>

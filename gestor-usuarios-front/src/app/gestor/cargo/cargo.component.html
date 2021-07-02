@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>
+  Cadastro de Usuários
+</h1>
+
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="w-full">
+      <mat-label>Nome</mat-label>
+      <input id="nome" matInput [formControlName]="'nome'">
+      <mat-error *ngIf="form.get('nome').hasError('required')">
+        O campo nome é obrigatório.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onConfirm()">Salvar</button>
+  <button mat-button (click)="onDismiss()">Cancelar</button>
+</mat-dialog-actions>
